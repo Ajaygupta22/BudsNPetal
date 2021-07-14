@@ -1,0 +1,85 @@
+<?php
+session_start();
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "miniproject";
+
+$conn = mysqli_connect($host,$user,$password,$db);
+
+if(isset($_POST['remove']))
+{
+    if($_GET['action']=='remove')
+    {
+        foreach($_SESSION['cart'] as $key=>$value)
+        {
+            if($value['product_id'] == $_GET['id'])
+            {
+                unset($_SESSION['cart'][$key]);
+                echo"<script>window.location='cart.php'</script>";
+            }
+        }
+    }
+}
+?>
+
+<html>
+    <body style='margin-left:80px;'>
+        <h1>My Cart</h1>
+        <hr style='margin-bottom:-50px;'>
+        <?php
+            if (isset($_SESSION['cart'])){
+                $product_id = array_column($_SESSION['cart'], 'product_id');
+                $sql = 'select * from productdetails';
+                $result = mysqli_query($conn,$sql);
+                if(mysqli_num_rows($result)>0)
+                {
+                    while ($row = mysqli_fetch_assoc($result)){
+                        foreach ($product_id as $id){
+                            if ($row['product_id'] == $id){
+                                cartElement($row['product_id'],$row['img'], $row['product_name'],$row['price'], $row['original_price']);                                
+                            }
+                        }
+                    }
+                }
+                
+            }
+            else
+            {
+                echo "<h5>Cart is Empty</h5>";
+            }
+
+        ?>
+    </body>
+</html>
+
+<?php
+function cartElement($product_id,$productimg, $productname, $productprice, $ini_price){
+    $element = "
+    <form action=\"cart.php?action=remove&id=$product_id\" method=\"post\" class=\"cart-items\">
+                    <div style='width:800px; height:150px; border-style:solid; border-color:gray; box-shadow:2px 2px gray; margin-top:80px;'>
+                    <div class=\"border rounded\">
+                        <div class=\"row bg-white\">
+                            <img src=$productimg alt=\"Image1\" style='width:130px; height:150px;'>
+                            <div class=\"col-md-6\" style='margin-left:160px; margin-top:-170px;'>
+                                <h1 class=\"pt-2\">$productname</h1>
+                                <h2 class=\"pt-2\" style='margin-top:-10px;'>₹$productprice</h2>
+                                <div style='margin-top:-20px;'><del>₹$ini_price</del></div>
+                                <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\" style='margin-top:15px; background-color:orange; border-radius:5px'>Remove</button>
+                            </div>
+                            <div class=\"col-md-3 py-5\">
+                                <div style='margin-left:700px; margin-top:-75px;'>
+                                    <button type=\"button\" class=\"btn bg-light border rounded-circle\" style='height:25px; width:25px;border-radius:36px; outline:none; cursor:pointer;'>-</button>
+                                    <input type=\"text\" value=\"1\" class=\"form-control w-25 d-inline\" style='width:35px; height:30px; text-align:center; background-color:orange;
+                                    border-radius:4px;'>
+                                    <button type=\"button\" class=\"btn bg-light border rounded-circle\" style='height:25px; width:25px;border-radius:36px; outline:none; cursor:pointer;'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+    
+    ";
+    echo  $element;
+}
+

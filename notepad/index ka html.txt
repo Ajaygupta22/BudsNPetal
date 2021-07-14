@@ -1,0 +1,51 @@
+if($conn)
+{
+	echo"<h2>Connected</h2>";
+}
+else{
+	echo "<h2>Not Connected</h2>";
+}
+
+$query="select * from productdetails where product_id=$id";
+
+if($result=mysqli_query($conn,$query))
+{
+	echo "<h2>query executed</h2>";
+}
+ 
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<title> Fetch Data From Database </title> 
+	</head> 
+	<body> 
+	<table align="center" border="1px" style="width:600px; line-height:40px;"> 
+	<tr> 
+		<th colspan="4"><h2>Student Record</h2></th> 
+		</tr> 
+			  <th> ID </th> 
+			  <th> Name </th> 
+			  <th> Email </th> 
+			  <th> Country </th> 
+			  
+		</tr> 
+		
+		
+		<?php
+		 
+		while($rows=mysqli_fetch_assoc($result)) 
+		{ 
+		?> 
+		<tr> <td><?php echo $rows['product_id']; ?></td> 
+		<td><?php echo $rows['product_name']; ?></td> 
+		<td><?php echo $rows['price']; ?></td> 
+        <td><?php echo $rows['qty']; ?></td> 
+		</tr> 
+	<?php 
+               } 
+          ?> 
+
+	</table> 
+	</body> 
+	</html>
+
