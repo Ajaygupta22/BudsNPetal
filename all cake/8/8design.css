@@ -1,0 +1,201 @@
+body{
+    padding: 0%;
+    margin: 0%;
+}
+
+.container{
+    margin-left: 320px;
+    margin-top: -90px;    
+}
+
+.find{
+    height: 40px;
+    width: 100px;
+    margin-left: 300px;
+    margin-top: -40px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    outline: none;
+    background-color: orange;
+    box-shadow: 1px 2px 5px grey;
+}
+
+.find:hover{
+    background-color: green;
+    cursor: pointer;
+}
+
+.search{
+    width: 300px;
+    height: 40px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    box-shadow: 1px 2px 5px grey;
+}
+
+h1{
+    font-size: 60px;
+    color: black;
+    font-family: 'Caveat Brush', cursive; 
+    margin-top: -10px;  
+}
+
+
+.navbar ul{
+    list-style: none;
+    display: inline-flex;
+    text-align: right;
+    margin-left: 1150px;
+    margin-top: -55px;
+}
+
+.navbar ul li{
+    margin-left: 25px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.navbar ul li a, h1 a{
+    text-decoration: none;
+    color: black;
+}
+
+.navbar ul li a:hover{
+    color: green;
+    text-decoration: underline;
+}
+
+.margin{
+    margin-left: 15%;
+    margin-top: 20px;
+
+}
+
+.thumbnail{
+    list-style: none;
+    display: inline-flex;
+    margin-left: -40px;
+   
+}
+
+.thumb_normal{
+    width: 100px;
+    height: 100px;    
+}
+
+.selected{
+    width: 100px;
+    height: 100px;
+    border: 3px solid green;
+}
+
+.image{
+    width: 400px;
+    height: 450px;
+}
+
+.info{
+    height: 600px;
+    width: 600px;
+    margin-left: 700px;
+    margin-top: -590px;
+}
+
+.name{
+    font-size: 30px;
+}
+
+.review{
+    font-size: 18px;
+    color: orange;
+    margin-top: -60px;
+}
+
+.price{
+    color: red;
+    margin-top: -15px;
+    font-size: 30px;
+}
+
+.number{
+    font-size: 60px;
+    margin-top: -43px;
+    margin-left: 20px;
+}
+
+.tax{
+    color: grey;
+    font-size: 15px;
+    margin-top: -12px;
+    margin-left: 25px;
+}
+
+.discount{
+    color: grey;
+    margin-top: -55px;
+    margin-left: 160px;
+    font-size: 25px;
+}
+
+.percent{
+    color: green;
+    margin-top: -5px;
+    margin-left: 160px;
+    font-size: 22px;
+}
+
+.addToCart{
+    height:50px;
+    width:200px;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: green;
+    color: white;
+    outline: none;
+    box-shadow:  4px 3px 5px grey;
+}
+
+.buyNow{
+    height:50px;
+    width:200px;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: orange;
+    color: white;
+    margin-left: 15px;
+    outline: none;
+    box-shadow:  4px 3px 5px grey;
+}
+
+.buyNow, .addToCart:hover{
+    cursor: pointer;
+}
+
+legend{
+    font-family: 'Calistoga';
+    font-size: 20px;
+
+}
+
+fieldset{
+    margin-top: -25px;
+}
+
+.item_name{
+    font-family: 'Calistoga';
+    margin-top: -15px;
+    font-size: 50px;
+}
+
+.des{
+    font-family: 'Calistoga';
+    font-size: 35px;
+}
+
+.inside_legend{
+    font-family: "Open+Sans";
+    font-size: 20px;
+    margin-top: -15px;
+}
